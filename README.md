@@ -8,7 +8,11 @@
 Приведите скриншот команды 'curl -X GET 'localhost:9200/_cluster/health?pretty', сделанной на сервере с установленным Elasticsearch. Где будет виден нестандартный cluster_name.
 ``` 
 **Ответ**  
+Отредактируем docker-compose конфиг, заменив имя сервера на random-cluster-netology  
 
+<img src="img/screen_1.png" width="100%">
+
+После запуска проверим при помощи команды Curl имя сервера.
 
 **Задание 2. Kibana**   
 
@@ -18,8 +22,10 @@
 Приведите скриншот интерфейса Kibana на странице http://<ip вашего сервера>:5601/app/dev_tools#/console, где будет выполнен запрос GET /_cluster/health?pretty.
 
 ``` 
-**Ответ:**    
-<img src="img/screen_1.png" width="100%">
+**Ответ:**   
+Добавим в Docker compose Kibana (запускал на отдельной машине).
+Запрос и ответ на скриншоте. 
+<img src="img/screen_2.png" width="100%">
 
 
 **Задание 3. Logstash**  
@@ -33,6 +39,15 @@
 
 **Ответ:**  
 
+Создадим конфигураци для  [Logstash](/conf/logstash/logstash.conf),  [Nginx](/conf/nginx/nginx.conf)  
+Дополним конфиг [Docker Compose](docker-compose.yml)
+Всё запустим.
+Проверим работу Nginx. Отправим несколько запросов <img src="img/screen_3.png" width="100%">  
+и посмотрим их наличие в логе
+<img src="img/screen_4.png" width="100%"> 
+
+Далее в интерфейсе Kibana создадим index patern:nginx-logs и проверим, что лог отображет наши запросы.
+<img src="img/screen_5.png" width="100%"> 
 
 
 **Задание 4. Filebeat.**  
@@ -45,17 +60,11 @@
 ```
 
 **Ответ**  
+Заменим в docker compose Logstash на [Filebeat](/conf/logstash/logstash.conf) и всё перезапустим.
 
+<img src="img/screen_6.png" width="100%"> 
 
+Вижу, что все логи запросов отобразились корректно.
 
-
-**Задание 5*. Доставка данных**  
-
-```
-Настройте поставку лога в Elasticsearch через Logstash и Filebeat любого другого сервиса , но не Nginx. Для этого лог должен писаться на файловую систему, Logstash должен корректно его распарсить и разложить на поля.
-
-Приведите скриншот интерфейса Kibana, на котором будет виден этот лог и напишите лог какого приложения отправляется.
-
-```
-**Ответ**  
+* файл docker compose приведён сразу со всеми сервисами, но для выполненияч домашнего задания запускал их по очереди и в зависимости от задания.
 

@@ -60,7 +60,7 @@
 ```
 
 **Ответ**  
-Заменим в docker compose Logstash на [Filebeat](/conf/logstash/logstash.conf) и всё перезапустим.
+Заменим в docker compose Logstash на [Filebeat](/conf/filebeat/filebeat.yml) и всё перезапустим.
 
 <img src="img/screen_6.png" width="100%"> 
 

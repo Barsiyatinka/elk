@@ -1,7 +1,7 @@
 # Домашнее задание к занятию   
 **"`ELK`"** - `Воскобойников Арсений Петрович`  
    
-**ЗЗадание 1. Elasticsearch**  
+**Задание 1. Elasticsearch**  
 ``` 
 Установите и запустите Elasticsearch, после чего поменяйте параметр cluster_name на случайный.
 
@@ -40,7 +40,7 @@
 **Ответ:**  
 
 Создадим конфигураци для  [Logstash](/conf/logstash/logstash.conf),  [Nginx](/conf/nginx/nginx.conf)  
-Дополним конфиг [Docker Compose](docker-compose.yml)
+Дополним конфиг [Docker Compose](/conf/docker-compose.yml)
 Всё запустим.
 Проверим работу Nginx. Отправим несколько запросов <img src="img/screen_3.png" width="100%">  
 и посмотрим их наличие в логе
